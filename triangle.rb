@@ -15,6 +15,23 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if a <= 0 or b <= 0 or c <= 0
+      raise TriangleError, "Sides cannot be of 0 or negative length"
+  end      
+
+  # Triangle Inequaliy Theorem
+  # The some of any 2 sides of a triangle must be greater than the third side
+  if a + b <= c or b + c <= a or a + c <= b
+      raise TriangleError, "Triangle Inequality Theorem"
+  end
+
+  if a == b and b == c
+      :equilateral
+  elsif (a == b and b != c) or (b == c and a != b) or ( a == c and c != b)
+      :isosceles
+  else
+      :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
